@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+
+<body>
+
+    <h1>fancybox</h1>
+    <hr>
+    <div style="display: none;" id="hidden-content">
+        <h2>hello</h2>
+        <p>this is our box</p>
+    </div>
+
+    <a data-fancybox data-src="#hidden-content" href="javascript:;">Trigger</a>
+
+    <a data-fancybox data-src='#hidden-content' href="javascript:;">or this</a>
+
+    <div id="display"></div>
+    <button onclick="runbox()">clickme</button>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+    integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+    crossorigin="anonymous"></script>
+
+<script>
+    var imagesrc = {
+        "OriginalImage": "https://source.unsplash.com/0JYgd2QuMfw/1500x1000",
+        "Thumbnail": "https://source.unsplash.com/0JYgd2QuMfw/240x160"
+    }
+
+    $(document).ready(function () {
+        var abc = `<a href="${imagesrc.OriginalImage}" data-fancybox="group1" >
+            <img src="${imagesrc.Thumbnail}"> 
+            </a>`
+        $("#display").append(abc);
+    })
+
+    var data = {
+        "id": "5002",
+        "type": "Glazed",
+        "image": "https://www.mycakeschool.com/images/2013/03/1-13-IMG_4350.jpg"
+    }
+
+    function runbox(){
+        $.fancybox.open(`<div class="message"><h2>${data.type}</h2> <hr> <img src="${data.image}"></div>`)
+    }
+</script>
+
+</html>
